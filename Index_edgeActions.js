@@ -92,6 +92,42 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'bluePageSymbol'
    (function(symbolName) {   
    
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1500, function(sym, e) {
+         // sym.$("name") resolves an Edge Animate element name to a DOM
+         // element that can be used with jQuery
+         var blueBox = sym.$("BluePageInput");
+         
+         
+         var injectHTML = $('<textarea id="demoText" placeholder="Type in here..." autofocus ></textarea>');
+         injectHTML.css("width","400px").css("height","80px");
+         blueBox.html(injectHTML);
+         
+         injectHTML = $('<button id="demoButton" style="width:200px; height:60px">Send Message</button>');
+         blueBox.append(injectHTML);
+         
+         $("#demoButton").on("click",function(e) {
+         
+         	// demo is to just save any input or generated content etc in javascript variables
+         	// in this case, I just used global variable
+         	// so be careful 
+         
+         
+         	// demo:
+         	//save the text entered in javascript variable demoTestValue...
+         	demoTextValue = $("#demoText").val();
+         //		^^^^^^
+         //
+         //feedback that the message is processed... use \" to escape the quotes
+         	blueBox.append($("<p>message: \""+demoTextValue+"\" sent</p>").css("color","white"));
+         
+         	//this is later retrieved in button5.click - so look at that code next...
+         
+         });
+         
+
+      });
+      //Edge binding end
+
    })("bluePageSymbol");
    //Edge symbol end:'bluePageSymbol'
 
@@ -166,25 +202,27 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          var popOverObj = sym.getSymbol("popOverSym"); 
          popOverObj.play();
          
-	var t = setTimeout(function() {
-
-	// sym.$("name") resolves an Edge Animate element name to a DOM
-	// element that can be used with jQuery
+	var t = setTimeout(function() { //delay execution...
 
 	var myPop = popOverObj.$("popOver");
 
-
 	var myHTML = "<h1 id='hello'>Hello!</h1>";
-	myHTML += "<p>lots of content in html goes in here!</p>";
-	myHTML += "<p>lots of content in html goes in here!!</p>";
-	myHTML += "<p>lots of content in html goes in here!!</p>";
-
+//	myHTML += "<p>lots of content in html goes in here!</p>";
+//	myHTML += "<p>lots of content in html goes in here!!</p>";
+	
+	// demo:
+	///////////////////////////////////////////
+	myHTML += "<p>You sent the message :<span id='myMessage'>" + demoTextValue + "</span></p>";
+//																					^^^^^^^^^^^^^^^
+//	uses demoTextValue that was saved earlier on Blue Page when the user types then pressed the button...
+	///////////////////////////////////////////
+	
 	myPop.html(myHTML);  //set inner html of the div element
 
+	//colorise the text with css:
+	$("#myMessage").css("color", "red");
 	$("#hello").css("color","blue");
-
-	// myPop.css("background-color","yellow")
-
+	
    }, 600);   // exectutes after 0.6 seconds... ie. after animation which is 0.5 seconds
 
 

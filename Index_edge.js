@@ -62,16 +62,16 @@ var symbols = {
    states: {
       "Base State": {
          "${_BlueTab}": [
-            ["style", "left", '0px'],
-            ["style", "border-bottom-left-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["style", "border-top-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "border-bottom-left-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "left", '0px'],
             ["style", "border-bottom-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ]
          ],
-         "${_Stage}": [
-            ["color", "background-color", 'rgba(255,255,255,1)'],
-            ["style", "width", '800px'],
-            ["style", "height", '600px'],
-            ["style", "overflow", 'hidden']
+         "${_RedTab}": [
+            ["color", "background-color", 'rgba(146,51,78,1.00)'],
+            ["style", "border-bottom-left-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
+            ["style", "left", '188px'],
+            ["style", "border-bottom-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ]
          ],
          "${_redPageSymbol}": [
             ["style", "top", '68px'],
@@ -80,11 +80,11 @@ var symbols = {
             ["style", "left", '34px'],
             ["style", "display", 'none']
          ],
-         "${_RedTab}": [
-            ["color", "background-color", 'rgba(146,51,78,1.00)'],
-            ["style", "border-bottom-left-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "left", '188px'],
-            ["style", "border-bottom-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ]
+         "${_Stage}": [
+            ["color", "background-color", 'rgba(255,255,255,1)'],
+            ["style", "overflow", 'hidden'],
+            ["style", "height", '600px'],
+            ["style", "width", '800px']
          ],
          "${_bluePageSymbol}": [
             ["style", "top", '68px'],
@@ -116,23 +116,23 @@ var symbols = {
    content: {
    dom: [
    {
-      rect: ['0px','0px','731px','532px','auto','auto'],
+      type: 'rect',
       id: 'bluePage',
       stroke: [0,'rgba(0,0,0,1)','none'],
-      type: 'rect',
+      rect: ['0px','0px','731px','532px','auto','auto'],
       fill: ['rgba(56,47,135,1.00)']
    },
    {
-      rect: ['110px','223px','511px','219px','auto','auto'],
       font: ['Arial, Helvetica, sans-serif',[3.04,'em'],'rgba(255,255,255,1)','normal','none','normal'],
+      type: 'text',
       id: 'Text2',
       text: 'This is the Blue Page',
       align: 'center',
-      type: 'text'
+      rect: ['110px','223px','511px','219px','auto','auto']
    },
    {
-      rect: ['150px','333px','441px','122px','auto','auto'],
       type: 'rect',
+      rect: ['150px','333px','441px','122px','auto','auto'],
       id: 'BluePageInput',
       stroke: [0,'rgba(0,0,0,1)','none'],
       display: 'none',
@@ -143,23 +143,23 @@ var symbols = {
    },
    states: {
       "Base State": {
+         "${_BluePageInput}": [
+            ["style", "display", 'none'],
+            ["color", "background-color", 'rgba(192,192,192,0.00)']
+         ],
          "${_bluePage}": [
             ["style", "top", '0px'],
             ["style", "left", '0px'],
             ["color", "background-color", 'rgba(56,47,135,1.00)']
          ],
-         "${symbolSelector}": [
-            ["style", "height", '532px'],
-            ["style", "width", '731px']
-         ],
-         "${_BluePageInput}": [
-            ["style", "display", 'none'],
-            ["color", "background-color", 'rgba(192,192,192,0.00)']
-         ],
          "${_Text2}": [
             ["style", "top", '-236px'],
             ["style", "opacity", '0'],
             ["style", "left", '110px']
+         ],
+         "${symbolSelector}": [
+            ["style", "height", '532px'],
+            ["style", "width", '731px']
          ]
       }
    },
@@ -188,81 +188,81 @@ var symbols = {
    content: {
    dom: [
    {
-      type: 'rect',
+      rect: ['0px','0px','800px','532px','auto','auto'],
       id: 'redPage',
       stroke: [0,'rgba(0,0,0,1)','none'],
-      rect: ['0px','0px','800px','532px','auto','auto'],
+      type: 'rect',
       fill: ['rgba(146,51,78,1)']
    },
    {
-      font: ['Arial, Helvetica, sans-serif',[3.04,'em'],'rgba(255,255,255,1.00)','normal','none',''],
       type: 'text',
+      rect: ['126px','266px','504px','194px','auto','auto'],
       id: 'Text',
       text: 'This is the RED Page !',
       align: 'center',
-      rect: ['126px','266px','504px','194px','auto','auto']
+      font: ['Arial, Helvetica, sans-serif',[3.04,'em'],'rgba(255,255,255,1.00)','normal','none','']
    },
    {
       rect: ['767px','29px','168px','52px','auto','auto'],
       borderRadius: ['10px','10px','10px','10px'],
-      opacity: 0.7403564453125,
-      id: 'button1',
       stroke: [0,'rgb(0, 0, 0)','none'],
+      id: 'button1',
+      opacity: 0.7403564453125,
       type: 'rect',
       fill: ['rgba(219,207,219,1.00)']
    },
    {
       rect: ['767px','105px','168px','52px','auto','auto'],
       borderRadius: ['10px','10px','10px','10px'],
-      opacity: 0.7403564453125,
-      id: 'button2',
       stroke: [0,'rgb(0, 0, 0)','none'],
+      id: 'button2',
+      opacity: 0.7403564453125,
       type: 'rect',
       fill: ['rgba(219,207,219,1.00)']
    },
    {
       rect: ['767px','179px','168px','52px','auto','auto'],
       borderRadius: ['10px','10px','10px','10px'],
-      opacity: 0.7403564453125,
-      id: 'button3',
       stroke: [0,'rgb(0, 0, 0)','none'],
+      id: 'button3',
+      opacity: 0.7403564453125,
       type: 'rect',
       fill: ['rgba(219,207,219,1.00)']
    },
    {
       rect: ['767px','255px','168px','52px','auto','auto'],
       borderRadius: ['10px','10px','10px','10px'],
-      opacity: 0.7403564453125,
-      id: 'button4',
       stroke: [0,'rgb(0, 0, 0)','none'],
+      id: 'button4',
+      opacity: 0.7403564453125,
       type: 'rect',
       fill: ['rgba(219,207,219,1.00)']
    },
    {
       rect: ['767px','331px','168px','52px','auto','auto'],
       borderRadius: ['10px','10px','10px','10px'],
-      opacity: 0.7403564453125,
-      id: 'button5',
       stroke: [0,'rgb(0, 0, 0)','none'],
+      id: 'button5',
+      opacity: 0.7403564453125,
       type: 'rect',
       fill: ['rgba(219,207,219,1.00)'],
       c: [
       {
-         font: ['Arial, Helvetica, sans-serif',24,'rgba(0,0,0,1)','normal','none',''],
+         type: 'text',
          id: 'ClickMeButtonText',
          text: 'Click ME!',
-         type: 'text',
-         rect: ['27px','15px','114px','27px','auto','auto']
+         rect: ['27px','15px','114px','27px','auto','auto'],
+         font: ['Arial, Helvetica, sans-serif',24,'rgba(0,0,0,1)','normal','none','']
       }]
    },
    {
-      font: ['Arial, Helvetica, sans-serif',[1.27,'em'],'rgba(255,255,255,1)','normal','none','normal'],
       type: 'text',
-      text: '\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"',
-      id: 'loremText',
-      opacity: 1,
+      rect: ['239px','-459px','431px','459px','auto','auto'],
       align: 'left',
-      rect: ['239px','-459px','431px','459px','auto','auto']
+      id: 'loremText',
+      text: '\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"',
+      opacity: 1,
+      font: ['Arial, Helvetica, sans-serif',[1.27,'em'],'rgba(255,255,255,1)','normal','none','normal']
    },
    {
       id: 'popOverSym',
@@ -290,8 +290,8 @@ var symbols = {
             ["color", "background-color", 'rgba(219,207,219,1.00)']
          ],
          "${_redPage}": [
-            ["style", "top", '0px'],
             ["color", "background-color", 'rgba(146,51,78,1.00)'],
+            ["style", "top", '0px'],
             ["style", "left", '0px'],
             ["style", "width", '800px']
          ],
@@ -314,19 +314,19 @@ var symbols = {
             ["style", "font-size", '1.27em']
          ],
          "${_ClickMeButtonText}": [
-            ["style", "top", '15px'],
             ["style", "height", '27px'],
+            ["style", "top", '15px'],
             ["style", "left", '27px'],
             ["style", "width", '114px']
          ],
          "${_Text}": [
-            ["style", "left", '126px'],
+            ["style", "word-spacing", '0em'],
             ["style", "letter-spacing", '0em'],
             ["style", "text-align", 'center'],
             ["style", "text-indent", '0%'],
             ["color", "color", 'rgba(255,255,255,1.00)'],
             ["style", "opacity", '1'],
-            ["style", "word-spacing", '0em'],
+            ["style", "left", '126px'],
             ["style", "font-size", '3.04em']
          ],
          "${symbolSelector}": [
@@ -352,9 +352,9 @@ var symbols = {
             { id: "eid24", tween: [ "style", "${_button2}", "left", '29px', { fromValue: '767px'}], position: 1460, duration: 379 },
             { id: "eid21", tween: [ "style", "${_button1}", "left", '29px', { fromValue: '767px'}], position: 1250, duration: 379 },
             { id: "eid13", tween: [ "style", "${_Text}", "opacity", '0', { fromValue: '1'}], position: 0, duration: 1500 },
-            { id: "eid22", tween: [ "style", "${_button3}", "left", '29px', { fromValue: '767px'}], position: 1629, duration: 379 },
-            { id: "eid23", tween: [ "style", "${_button5}", "left", '29px', { fromValue: '767px'}], position: 2000, duration: 379 },
             { id: "eid14", tween: [ "style", "${_Text}", "left", '736px', { fromValue: '126px'}], position: 0, duration: 1500 },
+            { id: "eid23", tween: [ "style", "${_button5}", "left", '29px', { fromValue: '767px'}], position: 2000, duration: 379 },
+            { id: "eid22", tween: [ "style", "${_button3}", "left", '29px', { fromValue: '767px'}], position: 1629, duration: 379 },
             { id: "eid25", tween: [ "style", "${_loremText}", "top", '29px', { fromValue: '-525px'}], position: 2379, duration: 621 },
             { id: "eid27", tween: [ "style", "${_loremText}", "opacity", '1', { fromValue: '0'}], position: 2379, duration: 621 },
             { id: "eid36", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_popOverSym}', [] ], ""], position: 0 }         ]
@@ -382,8 +382,8 @@ var symbols = {
    {
       display: 'none',
       type: 'rect',
-      id: 'closeBox',
-      rect: ['302','-179px','auto','auto','auto','auto']
+      rect: ['302','-179px','auto','auto','auto','auto'],
+      id: 'closeBox'
    }],
    symbolInstances: [
    {
@@ -394,16 +394,16 @@ var symbols = {
    states: {
       "Base State": {
          "${_closeBox}": [
-            ["style", "top", '-179px'],
             ["style", "display", 'none'],
+            ["style", "top", '-179px'],
             ["style", "overflow", 'visible']
          ],
          "${_popOver}": [
             ["color", "background-color", 'rgba(220,220,220,1.00)'],
             ["style", "top", '0px'],
             ["transform", "scaleY", '1'],
-            ["transform", "scaleX", '1'],
             ["style", "height", '120px'],
+            ["transform", "scaleX", '1'],
             ["style", "opacity", '0'],
             ["style", "left", '0px'],
             ["style", "width", '159px']
@@ -424,10 +424,10 @@ var symbols = {
             { id: "eid33", tween: [ "style", "${_popOver}", "top", '-187px', { fromValue: '0px'}], position: 0, duration: 500, easing: "easeInOutBounce" },
             { id: "eid32", tween: [ "style", "${_popOver}", "left", '-287px', { fromValue: '0px'}], position: 0, duration: 500, easing: "easeInOutBounce" },
             { id: "eid42", tween: [ "style", "${_popOver}", "width", '658px', { fromValue: '159px'}], position: 0, duration: 500, easing: "easeInOutBounce" },
-            { id: "eid34", tween: [ "style", "${_closeBox}", "display", 'none', { fromValue: 'none'}], position: 0, duration: 0 },
-            { id: "eid35", tween: [ "style", "${_closeBox}", "display", 'block', { fromValue: 'none'}], position: 500, duration: 0 },
+            { id: "eid29", tween: [ "style", "${_popOver}", "opacity", '0.89996337890625', { fromValue: '0'}], position: 0, duration: 500 },
             { id: "eid41", tween: [ "style", "${_popOver}", "height", '497px', { fromValue: '120px'}], position: 0, duration: 500, easing: "easeInOutBounce" },
-            { id: "eid29", tween: [ "style", "${_popOver}", "opacity", '0.89996337890625', { fromValue: '0'}], position: 0, duration: 500 }         ]
+            { id: "eid34", tween: [ "style", "${_closeBox}", "display", 'none', { fromValue: 'none'}], position: 0, duration: 0 },
+            { id: "eid35", tween: [ "style", "${_closeBox}", "display", 'block', { fromValue: 'none'}], position: 500, duration: 0 }         ]
       }
    }
 },
@@ -452,9 +452,9 @@ var symbols = {
    {
       rect: ['17px','18px','25px','25px','auto','auto'],
       borderRadius: ['50%','50%','50%','50%'],
-      opacity: 0.56793212890625,
-      id: 'closeInnerCircle',
       stroke: [0,'rgb(0, 0, 0)','none'],
+      id: 'closeInnerCircle',
+      opacity: 0.56793212890625,
       type: 'ellipse',
       fill: ['rgba(200,52,52,1.00)']
    }],

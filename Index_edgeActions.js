@@ -108,17 +108,17 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          $("#demoButton").on("click",function(e) {
          
          	// demo is to just save any input or generated content etc in javascript variables
-         	// in this case, I just used global variable
-         	// so be careful 
+         	// in this case, I have introduced a single global object to contain the namespace to a single
+         	// global object: DEMOanyApp
          
          
          	// demo:
          	//save the text entered in javascript variable demoTestValue...
-         	demoTextValue = $("#demoText").val();
+         	DEMOanyApp.demoTextValue = $("#demoText").val();
          //		^^^^^^
          //
          //feedback that the message is processed... use \" to escape the quotes
-         	blueBox.append($("<p>message: \""+demoTextValue+"\" sent</p>").css("color","white"));
+         	blueBox.append($("<p>message: \""+DEMOanyApp.demoTextValue+"\" sent</p>").css("color","white"));
          
          	//this is later retrieved in button5.click - so look at that code next...
          
@@ -209,20 +209,20 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
 	var myHTML = "<h1 id='hello'>Hello!</h1>";
 //	myHTML += "<p>lots of content in html goes in here!</p>";
 //	myHTML += "<p>lots of content in html goes in here!!</p>";
-	
+
 	// demo:
 	///////////////////////////////////////////
-	myHTML += "<p>You sent the message :<span id='myMessage'>" + demoTextValue + "</span></p>";
-//																					^^^^^^^^^^^^^^^
+	myHTML += "<p>You sent the message :<span id='myMessage'>" + DEMOanyApp.demoTextValue + "</span></p>";
+//                                                             ^^^^^^^^^^^^^^^
 //	uses demoTextValue that was saved earlier on Blue Page when the user types then pressed the button...
 	///////////////////////////////////////////
-	
+
 	myPop.html(myHTML);  //set inner html of the div element
 
 	//colorise the text with css:
 	$("#myMessage").css("color", "red");
 	$("#hello").css("color","blue");
-	
+
    }, 600);   // exectutes after 0.6 seconds... ie. after animation which is 0.5 seconds
 
 
